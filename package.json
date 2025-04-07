@@ -1,0 +1,13 @@
+{
+  "name": "my-lang-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:frontend": "npm run dev --prefix frontend_NEXT",
+    "start:backend": "npm run dev --prefix backend",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

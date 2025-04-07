@@ -1,0 +1,92 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.leftSide {
+  padding: 48px;
+}
+
+.leftSide h1 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.leftSide p {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.btnPrimary {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btnOutline {
+  border: 1px solid green;
+  color: green;
+  background-color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.rightSide {
+  background-color: #d4f0d4;
+  text-align: center;
+  padding: 48px;
+}
+
+.feature h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.image {
+  width: 60%;
+  margin: 16px auto;
+  display: block;
+}
+
+/* Optional responsive for mobile */
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .leftSide, .rightSide {
+    padding: 24px;
+  }
+
+  .image {
+    width: 80%;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnOutline {
+    width: 100%;
+    text-align: center;
+  }
+}
