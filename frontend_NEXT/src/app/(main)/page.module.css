@@ -1,72 +1,100 @@
 .main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  flex: 1;
-  min-height: 100vh;
+  grid-template-columns: 1.4fr 1fr;
+  min-height: calc(100vh - 132.4px);
 }
 
 .leftSide {
-  padding: 48px;
+  padding: 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
 }
 
 .leftSide h1 {
-  font-size: 32px;
+  font-size: 36px;
   margin-bottom: 24px;
+  font-weight: bold;
 }
 
 .leftSide p {
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 24px;
   color: #333;
+  line-height: 1.5;
 }
 
 .buttons {
   display: flex;
   gap: 16px;
+  justify-content: center;
 }
 
 .btnPrimary {
-  background-color: green;
+  background-color: #1f7a1f;
   color: white;
   border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 12px 24px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 17px;
+  transition: background-color 0.3s;
+  margin: 15px;
+}
+
+.btnPrimary:hover {
+  background-color: #155e15;
 }
 
 .btnOutline {
-  border: 1px solid green;
-  color: green;
+  border: 2px solid #1f7a1f;
+  color: #1f7a1f;
   background-color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 10px 22px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 17px;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 15px;
+
+}
+
+.btnOutline:hover {
+  background-color: #1f7a1f;
+  color: white;
 }
 
 .rightSide {
-  background-color: #d4f0d4;
-  text-align: center;
-  padding: 48px;
+  background-color: #92d298;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .feature h2 {
-  font-size: 20px;
+  font-size: 32px;
   margin-bottom: 8px;
+  margin-left: 50px;
 }
 
 .feature p {
-  font-size: 14px;
+  font-size: 19px;
   color: #333;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  margin-left: 50px;
 }
 
 .image {
-  width: 60%;
-  margin: 16px auto;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
   display: block;
+  padding: 20px 0;
 }
 
-/* Optional responsive for mobile */
+/* Responsive Design */
 @media (max-width: 768px) {
   .main {
     grid-template-columns: 1fr;
@@ -74,19 +102,43 @@
 
   .leftSide, .rightSide {
     padding: 24px;
+    text-align: center;
+  }
+
+  .leftSide h1 {
+    font-size: 28px;
+  }
+
+  .leftSide p {
+    font-size: 16px;
+  }
+
+  .feature h2 {
+    font-size: 24px;
+    margin-left: 0;
+  }
+
+  .feature p {
+    font-size: 16px;
+    margin-left: 0;
   }
 
   .image {
-    width: 80%;
+    width: 100%;
+    height: auto;
+    padding: 16px 0;
   }
 
   .buttons {
     flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
   .btnPrimary,
   .btnOutline {
-    width: 100%;
-    text-align: center;
+    width: 90%;
+    margin: 0 auto;
   }
 }
+

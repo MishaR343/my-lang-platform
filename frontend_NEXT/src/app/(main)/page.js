@@ -1,13 +1,19 @@
+
+'use client';
+
 import styles from './page.module.css';
+import Image from 'next/image';
+import car1 from './main_car1_img.svg';
 
 export default function HomePage() {
   return (
     <div className={styles.main}>
       <section className={styles.leftSide}>
-        <h1>Enhance Your Project with Interactive API</h1>
+        <h1>Enhance Your English with Interactive Chat</h1>
         <p>
-          Connect your Express.js backend with a modern frontend to build fast and scalable web apps.
-          Communicate via REST APIs for efficient and dynamic data flow.
+          Welcome to our platform where learning English becomes more effective!
+          <br />
+          Choose between regular chat for casual conversations or analytical chat for in-depth language improvement.
         </p>
         <div className={styles.buttons}>
           <button className={styles.btnPrimary}>Learn More</button>
@@ -18,12 +24,17 @@ export default function HomePage() {
       <section className={styles.rightSide}>
         <div className={styles.feature}>
           <h2>Chat Modes Available</h2>
-          <p>Regular chat for casual use and analytical mode for technical API debugging.</p>
+          <p>Regular chat for casual conversations and analytical insights.</p>
         </div>
-        <img src="/chat-bot-visual.png" alt="Chat Bot Visual" className={styles.image} />
+        <Image
+          src={car1}
+          alt="Chat Bot Visual"
+          className={styles.image}
+          loading="lazy"
+        />
         <div className={styles.feature}>
-          <h2>Real-Time API Feedback</h2>
-          <p>Get instant responses and logs from your Express backend.</p>
+          <h2>Real-Time Feedback</h2>
+          <p>Get instant suggestions to improve your writing style.</p>
         </div>
       </section>
     </div>

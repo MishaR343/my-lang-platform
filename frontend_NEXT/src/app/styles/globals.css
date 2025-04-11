@@ -21,19 +21,4 @@ html, body {
 
 main.main-content {
   flex: 1;
-  padding: 2rem;
-}
-
-/* Optional Header/Footer Styles */
-header {
-  background-color: #fff;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #ddd;
-}
-
-footer {
-  background-color: #fff;
-  padding: 1rem 2rem;
-  border-top: 1px solid #ddd;
-  text-align: center;
 }
