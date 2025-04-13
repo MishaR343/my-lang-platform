@@ -1,0 +1,92 @@
+.container {
+  min-height: calc(100vh - 67px);
+  background-image: url('/register/register_back.svg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 550px; /* Максимальна ширина форми */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2); /* Напівпрозорий білий фон */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тінь для форми */
+}
+
+.label {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 38px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form input,
+.form select {
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form input:focus,
+.form select:focus {
+  border: 3px solid  #2e8b57; /* Зелений колір при фокусі */
+}
+
+.form button {
+  margin-top: 20px;
+  padding: 14px;
+  font-size: 18px;
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #256f46;
+}
+
+.optional {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+  margin-top: -10px;
+}
+
+.passwordContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordContainer input {
+  flex: 1;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.eyeIcon:hover {
+  color: #2e8b57;
+}
