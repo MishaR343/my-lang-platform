@@ -2,30 +2,30 @@
 
 import LanguageSwitcher from './LanguageSwitcher';
 import Link from 'next/link';
-import LogoIcon from '/public//Logo.svg';
+import LogoIcon from '/public/Logo.svg';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import '../styles/Header.css';
 
 export default function Header() {
   const pathname = usePathname();
+  const t = useTranslations('Header');
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/chat-rooms', label: 'Chat Rooms' },
-    { href: '/progress', label: 'Progress Tracker' },
-    { href: '/resources', label: 'Resources' },
+    { href: '', label: t('home') },
+    { href: 'chat-rooms', label: t('chat') },
+    { href: 'progress', label: t('progress') },
+    { href: 'practice', label: t('practice') }
   ];
+  
 
-  const isRegisterPage = pathname === '/register';
-
-  // Видаляємо локаль із `pathname`
-  const locale = pathname.split('/')[1]; // Отримуємо локаль (наприклад, 'en' або 'uk')
+  const locale = pathname.split('/')[1];
   const pathWithoutLocale = pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
     ? pathname.replace(`/${locale}`, '') || '/'
     : pathname;
 
-  // Отримуємо останній сегмент шляху
   const currentSegment = pathWithoutLocale === '/' ? '/' : pathWithoutLocale.split('/').filter(Boolean).pop();
+  const isRegisterPage = currentSegment === 'register';
 
   return (
     <header className={`header ${isRegisterPage ? 'register-header' : ''}`}>
@@ -38,23 +38,29 @@ export default function Header() {
         {links.map(({ href, label }) => {
           const linkSegment = href === '/' ? '/' : href.split('/').filter(Boolean).pop();
           return (
-            <Link
-              key={href}
-              href={href}
-              className={`nav-link ${currentSegment === linkSegment ? 'active' : ''}`}
-            >
-              {label}
-            </Link>
+          <Link
+            key={href}
+            href={`/${locale}/${href}`}
+            className={`nav-link ${currentSegment === linkSegment ? 'active' : ''}`}
+          >
+            {label}
+          </Link>
+
           );
         })}
       </nav>
       <div className="auth-buttons">
+        {!isRegisterPage ? (
+          <>
+            <Link href="/register">
+              <button className="btn-outline">{t('signup')}</button>
+            </Link>
+            <button className="btn-primary">{t('login')}</button>
+          </>
+        ) : null}
         <LanguageSwitcher />
-        <Link href="/register">
-          <button className="btn-outline">Sign Up</button>
-        </Link>
-        <button className="btn-primary">Log In</button>
       </div>
+
     </header>
   );
 }

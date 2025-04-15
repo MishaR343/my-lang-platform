@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
+  padding-right: 20px;
+  padding-left: 24px;
   border-bottom: 1px solid #ccc;
   height: 65px;
   background-color: white;
@@ -14,64 +15,61 @@
   background-position: center;
   border-bottom: 1px solid #000000 !important;
 }
-.header.register-header .auth-buttons {
-visibility: hidden;
+  
+.nav {
+  display: flex;
+  gap: 20px;
 }
-  
-  .nav {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-  }
-  
-  .nav-link.active {
-    color: green;
-  }
-  
-  .nav-link:hover {
-    color: green;
-  }
 
-  .auth-buttons {
-    display: flex;
-    gap: 10px;
-  }
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
 
-  .btn-primary {
-    background-color: #1f7a1f;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15x;
-    transition: background-color 0.3s;
-  }
+.nav-link.active {
+  color: green;
+}
 
-  .btn-primary:hover {
-    background-color: #155e15;
-  }
-  
-  .btn-outline {
-    border: 1px solid green;
-    color: green;
-    background-color: white;
-    padding: 8px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: background-color 0.3s, color 0.3s;
-  }
+.nav-link:hover {
+  color: green;
+}
 
-  .btn-outline:hover {
-    background-color: #299029;
-    color: white;
-  }
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-primary {
+  background-color: #1f7a1f;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15x;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #155e15;
+}
+
+.btn-outline {
+  border: 1px solid green;
+  color: green;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline:hover {
+  background-color: #299029;
+  color: white;
+}
   
   /* Tablet (<=1024px) */
 @media (max-width: 1024px) {

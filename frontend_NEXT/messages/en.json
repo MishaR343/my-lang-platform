@@ -1,0 +1,28 @@
+{
+  "Home": {
+    "title": "Master Languages with AI-Powered Conversations",
+    "description": "Practice real-life dialogues, receive instant feedback, and track your progress — all in one interactive platform designed to elevate your language skills.",
+    "learnMore": "Discover More",
+    "join": "Start Learning",
+    "modesTitle": "Choose Your Chat Experience",
+    "modesDescription": "Switch between relaxed conversations and AI-assisted analytical chat for deeper insights.",
+    "feedbackTitle": "Personalized Feedback in Real Time",
+    "feedbackDescription": "Let smart suggestions guide you towards more fluent and natural communication."
+  },
+  "Footer": {
+    "contact": "Contact Us",
+    "about": "About Us",
+    "help": "Help Center",
+    "blog": "Blog Posts",
+    "feedback": "Feedback Form"
+  },
+  "Header": {
+    "home": "Home",
+    "chat": "Chat Rooms",
+    "progress": "Progress Tracker",
+    "practice": "Daily Practice",
+    "signup": "Sign Up",
+    "login": "Log In"
+  }
+  
+}

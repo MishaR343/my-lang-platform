@@ -1,30 +1,43 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import styles from '../styles/LanguageSwitcher.css';
+import { usePathname } from 'next/navigation';
+import { locales } from '../../i18n';
+import '../styles/LanguageSwitcher.css';
 
-const languages = [
-  { code: 'en', label: '🇬🇧' },
-  { code: 'uk', label: '🇺🇦' }
-];
+const languageLabels = {
+  en: '🇺🇸',
+  uk: '🇺🇦'
+};
 
 export default function LanguageSwitcher() {
   const pathname = usePathname();
-  const router = useRouter();
-  const currentLocale = router.locale; // Отримуємо поточну локаль
+
+  const getPathWithoutLocale = () => {
+    const segments = pathname.split('/').filter(Boolean);
+    if (locales.includes(segments[0])) {
+      segments.shift();
+    }
+    return `/${segments.join('/')}`;
+  };
+
+  const cleanPath = getPathWithoutLocale();
+  const currentLocale = pathname.split('/')[1];
+
+  const handleLocaleChange = (locale) => {
+    document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000`;
+  };
 
   return (
-    <div className={styles.switcher}>
-      {languages.map(({ code, label }) => (
+    <div className="lang-switcher">
+      {locales.map((locale) => (
         <Link
-          key={code}
-          href={pathname}
-          locale={code}
-          className={`${styles.flag} ${currentLocale === code ? styles.active : ''}`}
-          replace
+          key={locale}
+          href={`/${locale}${cleanPath}`}
+          className={`lang-flag ${locale === currentLocale ? 'active' : ''}`}
+          onClick={() => handleLocaleChange(locale)}
         >
-          {label}
+          {languageLabels[locale] || locale}
         </Link>
       ))}
     </div>
