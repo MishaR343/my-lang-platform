@@ -7,7 +7,7 @@ import '../styles/LanguageSwitcher.css';
 
 const languageLabels = {
   en: '🇺🇸',
-  uk: '🇺🇦'
+  ua: '🇺🇦'
 };
 
 export default function LanguageSwitcher() {
