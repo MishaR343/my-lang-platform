@@ -136,9 +136,9 @@ export default function Header() {
                 </button>
               </>
             )}
-            <LanguageSwitcher />
           </>
         )}
+        <LanguageSwitcher />
         </div>
       </header>
 

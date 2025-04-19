@@ -90,3 +90,22 @@
 .eyeIcon:hover {
   color: #2e8b57;
 }
+
+.emailTakenMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: -6px;
+}
+
+.emailTakenMessage span {
+  color: #0070f3;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 6px;
+  font-weight: 500;
+}
+
+.emailTakenMessage span:hover {
+  color: #0055aa;
+}

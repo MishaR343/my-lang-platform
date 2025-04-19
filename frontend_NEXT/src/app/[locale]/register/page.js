@@ -21,9 +21,13 @@ export default function RegisterPage() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [emailTaken, setEmailTaken] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if (e.target.name === 'email') {
+      setEmailTaken(false); // скидаємо, якщо юзер змінює email
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -32,22 +36,32 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setEmailTaken(false); // Скидуємо попередню помилку
+  
     toast.loading(t('loading'), { id: 'register' });
-
+  
     const res = await fetch('http://localhost:5000/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
+      body: JSON.stringify(form),
     });
-
+  
+    toast.dismiss('register'); // При будь-якому результаті — ховаємо лоадер
+  
     if (res.ok) {
       toast.success(t('success'), { id: 'register' });
       router.push(`/${locale}?loginModal=1`);
+    } else {
+      const data = await res.json();
+      
+      if (data.error === 'Користувач вже існує') {
+        setEmailTaken(true); // Показуємо повідомлення
       } else {
-      toast.error(t('error'), { id: 'register' });
+        toast.error(t('error'), { id: 'register' }); // Стандартна помилка
+      }
     }
   };
+  
 
   return (
     <div className={styles.container}>
@@ -60,6 +74,7 @@ export default function RegisterPage() {
           onChange={handleChange}
           required
         />
+
         <input
           name="email"
           type="email"
@@ -68,6 +83,15 @@ export default function RegisterPage() {
           onChange={handleChange}
           required
         />
+        {emailTaken && (
+          <div className={styles.emailTakenMessage}>
+            {t('emailExists')}
+            <span onClick={() => router.push(`/${locale}?loginModal=1`)}>
+              {t('loginInstead')}
+            </span>
+          </div>
+        )}
+
         <div className={styles.passwordContainer}>
           <input
             name="password"
@@ -84,6 +108,7 @@ export default function RegisterPage() {
             {showPassword ? '🙈' : '👁️'}
           </span>
         </div>
+
         <input
           list="country-list"
           name="country"
@@ -105,7 +130,6 @@ export default function RegisterPage() {
           <option value={t('countries.india')} />
           <option value={t('countries.other')} />
         </datalist>
-
 
         <select
           name="nativeLang"
