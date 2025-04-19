@@ -1,12 +1,3 @@
-/*
-  Warnings:
-
-  - You are about to drop the `Users` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropTable
-DROP TABLE "Users";
-
 -- CreateTable
 CREATE TABLE "app_users" (
     "id" SERIAL NOT NULL,
@@ -17,7 +8,7 @@ CREATE TABLE "app_users" (
     "country" TEXT,
     "nativeLang" TEXT,
     "targetLang" TEXT,
-    "level" TEXT,
+    "level" TEXT NOT NULL DEFAULT 'A2',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "app_users_pkey" PRIMARY KEY ("id")

@@ -1,5 +1,4 @@
-// filepath: c:\Users\user\Desktop\my-lang-platform\frontend_NEXT\src\components\IntlProviderWrapper.js
-'use client';
+ 'use client';
 
 import { NextIntlClientProvider } from 'next-intl';
 

@@ -22,7 +22,47 @@
     "progress": "Progress Tracker",
     "practice": "Daily Practice",
     "signup": "Sign Up",
-    "login": "Log In"
-  }
-  
+    "login": "Log In",
+    "unauthorized": "You are not logged in",
+    "authCheckFailed": "Authorization check failed"
+  },
+  "Register": {
+    "title": "Create an Account",
+    "username": "Username*",
+    "email": "Email*",
+    "password": "Password*",
+    "chooseNative": "Select your native language*",
+    "chooseTarget": "Select the language you want to learn*",
+    "button": "Register",
+    "success": "You registered successfully!",
+    "error": "Something went wrong. Please try again.",
+    "loading": "Registering...",
+    "country": "Country",
+    "optional": "optional",
+    "countries": {
+      "ukraine": "Ukraine",
+      "unitedKingdom": "United Kingdom",
+      "unitedStates": "United States",
+      "poland": "Poland",
+      "france": "France",
+      "germany": "Germany",
+      "italy": "Italy",
+      "canada": "Canada",
+      "spain": "Spain",
+      "india": "India",
+      "other": "Other"
+    }
+  },
+    "Login": {
+      "title": "Log In",
+      "email": "Email",
+      "password": "Password",
+      "login": "Log In",
+      "loading": "Logging in...",
+      "success": "Logged in successfully!",
+      "error": "Login failed. Check your credentials.",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign up"
+    }
+
 }

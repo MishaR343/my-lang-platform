@@ -17,6 +17,6 @@ model app_users {
   country     String?
   nativeLang  String?
   targetLang  String?
-  level       String?  // A1–C2
+  level       String   @default("A2")
   createdAt   DateTime @default(now())
 }

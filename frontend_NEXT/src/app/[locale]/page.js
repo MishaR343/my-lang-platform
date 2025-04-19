@@ -5,8 +5,9 @@ import ChatBotVisual from '/public/home/main_car1_img.svg';
 import styles from './page.module.css';
 
 export default function HomePage() {
-  const t = useTranslations('Home');
 
+  const t = useTranslations('Home');
+  
   return (
     <div className={styles.main}>
       <section className={styles.leftSide}>
@@ -17,7 +18,6 @@ export default function HomePage() {
           <button className={styles.btnOutline}>{t('join')}</button>
         </div>
       </section>
-
       <section className={styles.rightSide}>
         <div className={styles.feature}>
           <h2>{t('modesTitle')}</h2>

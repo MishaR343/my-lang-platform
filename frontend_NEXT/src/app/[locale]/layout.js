@@ -2,6 +2,7 @@ import { locales} from '../../../i18n';
 import { notFound } from 'next/navigation';
 import LayoutWithHeaderFooter from '../../components/LayoutWithHeaderFooter';
 import IntlProviderWrapper from '../../components/IntlProviderWrapper'; // Створимо окремий клієнтський компонент
+import { Toaster } from 'react-hot-toast';
 import '../../styles/globals.css';
 
 export async function generateMetadata({ params }) {
@@ -32,6 +33,7 @@ export default async function LocaleLayout({ children, params }) {
     <>
       <IntlProviderWrapper locale={locale} messages={messages}>
         <LayoutWithHeaderFooter>
+        <Toaster position="top-right" />
           {children}
         </LayoutWithHeaderFooter>
       </IntlProviderWrapper>

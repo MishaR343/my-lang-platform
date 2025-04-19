@@ -1,36 +1,46 @@
 import { NextResponse } from 'next/server';
 
+const defaultLocale = 'ua';
+const supportedLocales = ['en', 'ua'];
+const protectedRoutes = ['/chat-rooms', '/progress', '/practice'];
+
 export function middleware(request) {
-  const defaultLocale = 'ua';
-  const supportedLocales = ['en', 'ua'];
-
   const { pathname } = request.nextUrl;
+  const locale = pathname.split('/')[1];
+  const token = request.cookies.get('token')?.value;
 
-  // Якщо в URL вже є локаль — не перенаправляємо
-  if (supportedLocales.some((locale) => pathname.startsWith(`/${locale}`))) {
+  // 🔒 Захист приватних сторінок (але без кастомного заголовка)
+  if (
+    protectedRoutes.some((route) =>
+      pathname.startsWith(`/${locale}${route}`)
+    ) &&
+    !token
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}`; // перенаправляє на домашню
+    return NextResponse.redirect(url);
+  }
+
+  // 🌐 Додати локаль, якщо її нема в URL
+  if (supportedLocales.some((loc) => pathname.startsWith(`/${loc}`))) {
     return NextResponse.next();
   }
 
-  // 1. Спроба взяти локаль з cookie
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
-
-  // 2. Якщо в cookie нема — беремо з accept-language заголовку
   const acceptLanguage = request.headers.get('accept-language') || '';
-  const browserLocale = supportedLocales.find((locale) =>
-    acceptLanguage.includes(locale)
+  const browserLocale = supportedLocales.find((loc) =>
+    acceptLanguage.includes(loc)
   );
 
   const selectedLocale = supportedLocales.includes(cookieLocale)
     ? cookieLocale
     : browserLocale || defaultLocale;
 
-  // 3. Перенаправлення з додаванням локалі
   const url = request.nextUrl.clone();
   url.pathname = `/${selectedLocale}${pathname}`;
   return NextResponse.redirect(url);
 }
 
-// Вказуємо на які маршрути застосовувати middleware
 export const config = {
-  matcher: ['/((?!_next|.*\\..*|favicon.ico).*)'],
+  matcher: ['/((?!_next|.*\\..*|favicon.ico|api).*)']
 };
