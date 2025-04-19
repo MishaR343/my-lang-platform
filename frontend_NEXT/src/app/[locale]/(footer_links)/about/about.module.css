@@ -1,0 +1,74 @@
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    background: #f9f9f9; /* Світлий фон для контейнера */
+    border-radius: 10px; /* Згладжені кути */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легка тінь */
+}
+
+.intro {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #333;
+    line-height: 1.8; /* Покращений міжрядковий інтервал */
+}
+
+.section {
+    margin-top: 40px;
+    text-align: left; /* Вирівнювання тексту по лівому краю */
+}
+
+.section h2 {
+    font-size: 24px;
+    color: #2e8b57; /* Темно-зелений */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #c8e6c9; /* Підкреслення заголовка */
+    padding-bottom: 5px;
+}
+
+.section p {
+    font-size: 16px;
+    line-height: 1.8; /* Покращений міжрядковий інтервал */
+    color: #555;
+    margin-top: 10px;
+}
+
+.section:nth-child(even) {
+    background: #f1f8f5; /* Легкий зелений фон для парних секцій */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.section:nth-child(odd) {
+    background: #ffffff; /* Білий фон для непарних секцій */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.container h1 {
+    font-size: 32px;
+    color: #2e7d32; /* Темно-зелений */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Великі літери */
+    letter-spacing: 1px; /* Розрядка між літерами */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    .section p {
+        font-size: 14px;
+    }
+}

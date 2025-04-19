@@ -1,0 +1,112 @@
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff; /* Білий фон */
+    border-radius: 10px; /* Згладжені кути */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легка тінь */
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 28px;
+    color: #2e8b57; /* Темно-зелений */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Великі літери */
+    letter-spacing: 1px; /* Розрядка між літерами */
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6; /* Покращений міжрядковий інтервал */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form input,
+.form textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #c8e6c9; /* Світло-зелений */
+    border-radius: 8px;
+    background: #f9f9f9; /* Світлий фон */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form input:focus,
+.form textarea:focus {
+    border-color: #2e8b57; /* Темно-зелений */
+    box-shadow: 0 0 5px rgba(46, 139, 87, 0.5); /* Легка зелена тінь */
+}
+
+.form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form button {
+    background-color: #2e8b57; /* Темно-зелений */
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form button:hover {
+    background-color: #1b5e20; /* Темніший зелений */
+    transform: scale(1.05); /* Легке збільшення при наведенні */
+}
+
+.form button:active {
+    transform: scale(0.95); /* Легке зменшення при натисканні */
+}
+
+.success {
+    margin-top: 20px;
+    color: #2e8b57; /* Темно-зелений */
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+}
+
+.error {
+    margin-top: 20px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .form input,
+    .form textarea {
+        font-size: 14px;
+    }
+
+    .form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

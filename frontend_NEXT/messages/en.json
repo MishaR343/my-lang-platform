@@ -55,16 +55,69 @@
       "other": "Other"
     }
   },
-    "Login": {
-      "title": "Log In",
-      "email": "Email",
-      "password": "Password",
-      "login": "Log In",
-      "loading": "Logging in...",
-      "success": "Logged in successfully!",
-      "error": "Login failed. Check your credentials.",
-      "noAccount": "Don't have an account?",
-      "signupLink": "Sign up"
-    }
+
+  "Login": {
+    "title": "Log In",
+    "email": "Email",
+    "password": "Password",
+    "login": "Log In",
+    "loading": "Logging in...",
+    "success": "Logged in successfully!",
+    "error": "Login failed. Check your credentials.",
+    "noAccount": "Don't have an account?",
+    "signupLink": "Sign up"
+  },
+  
+"Contact": {
+  "title": "Contact Us",
+  "subtitle": "We’re here to support you online",
+  "description": "Our platform operates fully online. If you have questions or need help, feel free to reach out via email or our social channels.",
+  "email": "Email support:",
+  "social": "Follow us on social media",
+  "noOffice": "We do not have a physical office — all support is provided online."
+},
+
+"About": {
+  "title": "About the Project",
+  "intro": "This platform is a solo project created with the goal of transforming how people learn languages. It combines smart AI features and a user-friendly chat interface to help learners improve naturally and independently.",
+  "teamTitle": "About the Creator",
+  "teamDescription": "This platform is built by a single developer who wears all the hats: UX designer, backend engineer, frontend developer, and AI integrator. The idea was born out of a desire to create a practical, motivational, and modern tool for language learners. By combining technical skills with a deep interest in education, the creator aimed to develop something meaningful and useful for everyday learners—something that blends simplicity, interactivity, and personal growth.",
+  "visionTitle": "Vision",
+  "visionDescription": "The vision behind this project is to make language learning more than just studying vocabulary or grammar. It’s about daily interaction, context-based improvement, and building confidence through use. The platform is designed to help people integrate language into their daily routine through chat-based exercises, real-time feedback, and AI-powered analysis—without the pressure of a traditional classroom. The goal is to empower independent learners and make self-paced language learning feel intuitive, rewarding, and human."
+},
+
+"Help": {
+  "title": "Help Center",
+  "intro": "Need assistance? Explore our frequently asked questions and troubleshooting guides below.",
+  "faqTitle": "Frequently Asked Questions",
+  "faq1Question": "How do I reset my password?",
+  "faq1Answer": "Go to the login screen and click on 'Forgot Password'. Follow the instructions to reset your password via email.",
+  "faq2Question": "How do I change the interface language?",
+  "faq2Answer": "Use the language switcher in the top right corner to select your preferred language.",
+  "faq3Question": "Why can't I access certain features?",
+  "faq3Answer": "Some features are only available after registration or login. Please make sure you're signed in."
+},
+
+"Blog": {
+  "title": "Language Learning Blog",
+  "intro": "Explore useful tips, articles, and updates to boost your language journey.",
+  "article1Title": "Top 5 Techniques to Improve Your Speaking Skills",
+  "article1Excerpt": "Discover practical methods you can apply daily to boost fluency.",
+  "article2Title": "Why Daily Practice Matters",
+  "article2Excerpt": "Consistency is the key to mastering any language. Here’s why.",
+  "article3Title": "New Feature: AI Chat Correction",
+  "article3Excerpt": "Learn how our new AI-powered tool analyzes your messages and gives instant feedback."
+},
+
+"Feedback": {
+  "title": "We value your feedback",
+  "subtitle": "Help us improve by sharing your experience.",
+  "name": "Your Name",
+  "email": "Email",
+  "message": "Your Message",
+  "submit": "Send Feedback",
+  "success": "Thank you for your feedback!",
+  "error": "Something went wrong. Please try again later."
+}
 
 }

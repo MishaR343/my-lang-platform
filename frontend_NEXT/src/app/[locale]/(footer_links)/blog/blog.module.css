@@ -1,0 +1,79 @@
+.container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff; /* Білий фон */
+    border-radius: 10px; /* Згладжені кути */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легка тінь */
+}
+
+.container h1 {
+    font-size: 32px;
+    color: #2e8b57; /* Темно-зелений */
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Великі літери */
+    letter-spacing: 1px; /* Розрядка між літерами */
+}
+
+.intro {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #444;
+    text-align: center;
+    line-height: 1.6; /* Покращений міжрядковий інтервал */
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.article {
+    padding: 20px;
+    background: #f9f9f9; /* Світлий фон */
+    border-left: 5px solid #2e8b57; /* Зелена смуга зліва */
+    border-radius: 8px; /* Згладжені кути */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article:hover {
+    transform: translateY(-5px); /* Легке підняття при наведенні */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Тінь при наведенні */
+}
+
+.article h2 {
+    margin-bottom: 10px;
+    color: #2e8b57; /* Темно-зелений */
+    font-size: 24px;
+}
+
+.article p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6; /* Покращений міжрядковий інтервал */
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .container h1 {
+        font-size: 28px;
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+    .article h2 {
+        font-size: 20px;
+    }
+
+    .article p {
+        font-size: 14px;
+    }
+}

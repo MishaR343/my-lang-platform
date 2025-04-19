@@ -1,0 +1,102 @@
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff; /* Білий фон */
+    border-radius: 10px; /* Згладжені кути */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легка тінь */
+    line-height: 1.6;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 32px;
+    color: #2e8b57; /* Темно-зелений */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Великі літери */
+    letter-spacing: 1px; /* Розрядка між літерами */
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 16px;
+}
+
+.infoBlock p {
+    margin: 12px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.note {
+    font-style: italic;
+    color: #777;
+    font-size: 14px;
+}
+
+.social {
+    margin-top: 30px;
+}
+
+.social p {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #2e8b57; /* Темно-зелений */
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.icons a {
+    color: #2e8b57; /* Темно-зелений */
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icons a:hover {
+    color: #1b5e20; /* Темніший зелений */
+    transform: scale(1.1); /* Легке збільшення при наведенні */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .container .containerh1 {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .infoBlock p {
+        font-size: 14px;
+    }
+
+    .social p {
+        font-size: 16px;
+    }
+
+    .icons a {
+        font-size: 14px;
+    }
+}
