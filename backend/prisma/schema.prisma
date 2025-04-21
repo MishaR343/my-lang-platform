@@ -19,4 +19,44 @@ model app_users {
   targetLang  String?
   level       String   @default("A2")
   createdAt   DateTime @default(now())
+
+  messagesSent     messages[] @relation("SentMessages")
+  messagesReceived messages[] @relation("ReceivedMessages")
+  chatRooms        chat_rooms[] @relation("UserRooms")
+  dailyTasks       daily_tasks[]
+}
+
+model chat_rooms {
+  id        Int       @id @default(autoincrement())
+  name      String?
+  createdAt DateTime  @default(now())
+
+  messages  messages[]
+  users     app_users[] @relation("UserRooms")
+}
+
+model messages {
+  id         Int       @id @default(autoincrement())
+  content    String
+  createdAt  DateTime  @default(now())
+
+  senderId   Int?
+  receiverId Int?
+  roomId     Int?
+
+  sender     app_users?   @relation("SentMessages", fields: [senderId], references: [id])
+  receiver   app_users?   @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  room       chat_rooms?  @relation(fields: [roomId], references: [id])
+}
+
+model daily_tasks {
+  id         Int      @id @default(autoincrement())
+  title      String
+  content    String
+  type       String   // Наприклад: grammar, vocab, speaking
+  createdAt  DateTime @default(now())
+  completed  Boolean  @default(false)
+
+  userId     Int
+  user       app_users @relation(fields: [userId], references: [id])
 }
