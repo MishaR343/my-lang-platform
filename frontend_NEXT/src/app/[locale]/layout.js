@@ -1,42 +1,26 @@
-import { locales} from '../../../i18n';
+import { locales } from '../../../i18n';
 import { notFound } from 'next/navigation';
-import LayoutWithHeaderFooter from '../../components/LayoutWithHeaderFooter';
-import IntlProviderWrapper from '../../components/IntlProviderWrapper'; // Створимо окремий клієнтський компонент
-import { Toaster } from 'react-hot-toast';
-import '../../styles/globals.css';
+import LocaleLayoutClient from '../../components/LocaleLayoutClient';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-
-  return {
-    htmlLang: locale
-  };
+  return { htmlLang: locale };
 }
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
-
-  if (!locales.includes(locale)) {
-    console.error(`Unsupported locale: ${locale}`);
-    notFound();
-  }
+  if (!locales.includes(locale)) return notFound();
 
   let messages;
   try {
     messages = (await import(`../../../messages/${locale}.json`)).default;
-  } catch (error) {
-    console.error(`Error loading messages for locale "${locale}":`, error);
-    notFound();
+  } catch {
+    return notFound();
   }
 
   return (
-    <>
-      <IntlProviderWrapper locale={locale} messages={messages}>
-        <LayoutWithHeaderFooter>
-        <Toaster position="top-right" />
-          {children}
-        </LayoutWithHeaderFooter>
-      </IntlProviderWrapper>
-    </>
+    <LocaleLayoutClient locale={locale} messages={messages}>
+      {children}
+    </LocaleLayoutClient>
   );
 }

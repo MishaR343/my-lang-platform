@@ -1,4 +1,3 @@
-// schema.prisma
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,55 +7,76 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserStatus {
+  Active
+  Inactive
+}
+
+enum MessageStatus {
+  Sent
+  Read
+}
+
 model app_users {
-  id          Int      @id @default(autoincrement())
-  email       String   @unique
+  id          Int             @id @default(autoincrement())
+  email       String          @unique
   password    String
   username    String
-  role        String   @default("user")
+  avatar      String?
+  role        String          @default("user")
   country     String?
   nativeLang  String?
   targetLang  String?
-  level       String   @default("A2")
-  createdAt   DateTime @default(now())
+  level       String          @default("A2")
+  createdAt   DateTime        @default(now())
+  status      UserStatus      @default(Inactive)
 
-  messagesSent     messages[] @relation("SentMessages")
-  messagesReceived messages[] @relation("ReceivedMessages")
-  chatRooms        chat_rooms[] @relation("UserRooms")
-  dailyTasks       daily_tasks[]
+  messagesSent  chat_messages[] @relation("SentMessages")
+  dailyTasks    daily_tasks[]
+  room_users    room_users[]
 }
 
 model chat_rooms {
-  id        Int       @id @default(autoincrement())
-  name      String?
-  createdAt DateTime  @default(now())
+  id         Int           @id @default(autoincrement())
+  theme      String
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime?     @default(now()) @updatedAt
 
-  messages  messages[]
-  users     app_users[] @relation("UserRooms")
+  room_users room_users[]
+  messages   chat_messages[]
 }
 
-model messages {
-  id         Int       @id @default(autoincrement())
+model room_users {
+  user    app_users   @relation(fields: [userId], references: [id])
+  userId  Int
+
+  room    chat_rooms  @relation(fields: [roomId], references: [id])
+  roomId  Int
+
+  @@id([userId, roomId])
+}
+
+model chat_messages {
+  id         Int           @id @default(autoincrement())
   content    String
-  createdAt  DateTime  @default(now())
+  createdAt  DateTime      @default(now())
+  status     MessageStatus @default(Sent)
 
-  senderId   Int?
-  receiverId Int?
-  roomId     Int?
+  sender     app_users     @relation("SentMessages", fields: [senderId], references: [id])
+  senderId   Int
 
-  sender     app_users?   @relation("SentMessages", fields: [senderId], references: [id])
-  receiver   app_users?   @relation("ReceivedMessages", fields: [receiverId], references: [id])
-  room       chat_rooms?  @relation(fields: [roomId], references: [id])
+  room       chat_rooms    @relation(fields: [roomId], references: [id])
+  roomId     Int
 }
 
 model daily_tasks {
-  id         Int      @id @default(autoincrement())
+  id         Int        @id @default(autoincrement())
   title      String
   content    String
-  type       String   // Наприклад: grammar, vocab, speaking
-  createdAt  DateTime @default(now())
-  completed  Boolean  @default(false)
+  type       String
+  createdAt  DateTime   @default(now())
+  completed  Boolean    @default(false)
 
+  user       app_users  @relation(fields: [userId], references: [id])
   userId     Int
-  user       app_users @relation(fields: [userId], references: [id])
 }

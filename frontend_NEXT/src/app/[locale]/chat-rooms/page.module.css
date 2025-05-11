@@ -1,16 +1,115 @@
 .container {
-    padding: 2rem;
-    background-color: #f0f4f8;
+  height: calc(100vh - 123px);
+  width: 100%;
+  margin: 0 auto;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+/* Split wrapper */
+.split {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* Перетягувальна межа */
+.gutter {
+  background-color: #cfd8dc;
+  cursor: col-resize;
+  width: 6px;
+  min-width: 6px;
+}
+
+/* Панелі чату */
+.leftPanel,
+.rightPanel {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Колірна схема */
+.leftPanel {
+  background: linear-gradient(to bottom, #aed8ae, #edf6eb);
+}
+
+.rightPanel {
+  background: linear-gradient(to bottom, #aed8ae, #f6fff4);
+}
+
+/* Кнопки та форми */
+.themeLabel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.themeInput {
+  accent-color: #2e8b57;
+  width: 18px;
+  height: 18px;
+}
+
+.createErrorText {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}
+
+.button {
+  padding: 15px;
+  font-size: 16px;
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #1b5e20;
+  transform: scale(1.05);
+}
+
+.button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* Mobile адаптація */
+@media (max-width: 768px) {
+  .split {
+    flex-direction: column;
   }
-  
-  .title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #333;
+
+  .leftPanel,
+  .rightPanel {
+    height: auto;
+    padding: 30px;
   }
-  
-  .description {
-    font-size: 1.1rem;
-    color: #555;
+
+  .searchInput {
+    font-size: 14px;
   }
-  
+
+  .button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .gutter {
+    height: 6px;
+    cursor: row-resize;
+    width: 100%;
+  }
+}

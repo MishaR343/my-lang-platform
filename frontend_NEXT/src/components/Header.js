@@ -8,13 +8,14 @@ import Link from 'next/link';
 import toast from 'react-hot-toast';
 import LogoIcon from '/public/Logo.svg';
 import LanguageSwitcher from './LanguageSwitcher';
+import AvatarCircle from './AvatarCircle';
 import LoginModal from './LoginModal';
-import Spinner from './Spinner'; // додай простий спінер-компонент
+import Spinner from './Spinner'; 
 import '../styles/Header.css';
 
 export default function Header() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const rawPath = usePathname() ?? '';
+  const pathname = rawPath;  const searchParams = useSearchParams();
   const router = useRouter();
   const t = useTranslations('Header');
   const [showLogin, setShowLogin] = useState(false);
@@ -30,15 +31,15 @@ export default function Header() {
     }
   }, [loginModalFromQuery]);
 
-  const locale = pathname.split('/')[1] || 'uk';
-  const pathWithoutLocale = pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    ? pathname.replace(`/${locale}`, '') || '/'
-    : pathname;
-  const currentSegment = pathWithoutLocale === '/' ? '/' : pathWithoutLocale.split('/').filter(Boolean).pop();
+  const segments = pathname.split('/');
+  const cleaned = segments.filter(Boolean);
+  const locale = cleaned[0] || 'uk';
+  // Прибрати локального префікса
+  const withoutLocale = cleaned[0] === locale ? cleaned.slice(1) : cleaned;
+  const currentSegment = withoutLocale.length === 0
+    ? '/'
+    : withoutLocale[withoutLocale.length - 1];
   const isRegisterPage = currentSegment === 'register';
-
-  const getInitials = (name) =>
-    name.split(' ').map(word => word[0]).join('').toUpperCase();
 
   const protectedRoutes = ['chat-rooms', 'progress', 'practice'];
 
@@ -70,8 +71,6 @@ export default function Header() {
       router.push(`/${locale}${route}`);
     }
   };
-  
-  
 
   const handleLogout = async () => {
     try {
@@ -121,7 +120,7 @@ export default function Header() {
               <Spinner />
             ) : user ? (
               <div className="user-box">
-                <div className="avatar">{getInitials(user.username)}</div>
+                <AvatarCircle username={user.username} avatar={user.avatar} />
                 <button className="logout-btn" onClick={handleLogout}>
                   Logout
                 </button>

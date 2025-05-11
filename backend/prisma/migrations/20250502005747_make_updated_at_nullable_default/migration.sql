@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "chat_rooms" ALTER COLUMN "updatedAt" DROP NOT NULL,
+ALTER COLUMN "updatedAt" SET DEFAULT CURRENT_TIMESTAMP;

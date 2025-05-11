@@ -1,0 +1,14 @@
+/* components/styles/Split.css */
+
+.split {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .gutter {
+    background-color: #cfd8dc;
+    cursor: col-resize;
+    width: 8px;
+  }
+  

@@ -118,6 +118,43 @@
   "submit": "Send Feedback",
   "success": "Thank you for your feedback!",
   "error": "Something went wrong. Please try again later."
+},
+
+"ChatRoom": {
+  "Search": "Search",
+  "Loading": "Loading...",
+  "No chat rooms": "No chat rooms",
+  "No messages yet": "No messages yet",
+  "or Make a New chat!": "Or create a new chat!",
+  "Choose a theme": "(Choose a theme to start a new conversation)",
+  "Creating": "Creating...",
+  "Start Chat": "Start Chat",
+  "errorFetch": "Failed to load chats",
+  "errorCreate": "Could not create chat",
+  "errorNoTheme": "Please select a theme",
+  "theme": {
+    "business": "Business & Entrepreneurship",
+    "movies":   "Movies & Series",
+    "cars":     "Cars & Motorcycles",
+    "food":     "Food & Recipes",
+    "health":   "Health & Fitness",
+    "books":    "Books & Literature",
+    "sport":    "Sport",
+    "music":    "Music",
+    "other":    "Other"
+  },
+  "back": "Back",
+  "message": "Message",
+  "AI Improved": "AI Improvement",
+  "original": "Your original message",
+  "improved": "AI-suggested version",
+  "send improved": "Send improved",
+  "send original": "Send original",
+  "cancel": "Edit",
+  "Improved": "Improved:",
+  "AI Improved info": "When enabled, AI suggests an improved version of your message before sending. You can choose which version to send."
+
 }
+
 
 }

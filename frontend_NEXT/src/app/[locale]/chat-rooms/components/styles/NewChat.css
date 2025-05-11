@@ -1,0 +1,92 @@
+/* Контейнер правої панелі */
+.new-chat-container {
+    flex: 4;
+    background: linear-gradient(to bottom, #aed8ae, #f6fff4); /* Градієнт */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow-y: auto; /* Прокрутка, якщо контент перевищує висоту */
+    padding: 40px;
+  }
+  
+  /* Заголовок */
+  .new-chat-container h2 {
+    font-size: 24px;
+    color: #2e8b57; /* Темно-зелений */
+    margin-bottom: 10px;
+  }
+  
+  /* Підзаголовок */
+  .new-chat-container p {
+    font-size: 16px;
+    color: #555; /* Сірий */
+    margin-bottom: 20px;
+  }
+  
+  /* Форма */
+  .new-chat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Лейбли тем */
+  .new-chat-theme-label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* Радіо-кнопки */
+  .new-chat-theme-input {
+    accent-color: #2e8b57; /* Темно-зелений */
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Кнопка створення */
+  .new-chat-button {
+    padding: 15px;
+    font-size: 16px;
+    background-color: #2e8b57; /* Темно-зелений */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+  }
+  
+  .new-chat-button:hover {
+    background-color: #1b5e20; /* Темніший зелений */
+    transform: scale(1.05);
+  }
+  
+  .new-chat-button:disabled {
+    background-color: #a5d6a7; /* Світло-зелений */
+    cursor: not-allowed;
+  }
+  
+  /* Текст помилки */
+  .new-chat-error-text {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* Адаптивність */
+  @media (max-width: 768px) {
+    .new-chat-container {
+      padding: 30px;
+      height: auto; /* Висота автоматично підлаштовується */
+    }
+  
+    .new-chat-button {
+      font-size: 14px;
+      padding: 12px;
+    }
+  }

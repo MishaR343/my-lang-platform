@@ -6,8 +6,10 @@ import Footer from './Footer';
 
 export default function LayoutWithHeaderFooter({ children }) {
   const pathname = usePathname();
-  const lastSegment = pathname.split('/').filter(Boolean).pop();
-
+  const segments = (pathname ?? '').split('/');
+  const filtered = segments.filter(Boolean);
+  const lastSegment = filtered[filtered.length - 1];
+  
   return (
     <div className="layout-container">
       <Header />

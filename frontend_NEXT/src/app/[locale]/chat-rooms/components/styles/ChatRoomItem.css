@@ -1,0 +1,82 @@
+.chat-link {
+  text-decoration: none;
+}
+
+.chat-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f2f2f2; /* Темно-зелений фон */
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chat-item-content:hover {
+  background: #ececec; /* Темніший зелений фон */
+  transform: translateY(-1px);
+}
+
+.chat-item-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Відступ між аватаром і текстом */
+}
+
+.chat-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Вирівнювання часу і бейджа по правому краю */
+  margin-left: auto; /* Відсуває правий блок вправо */
+  gap: 5px; /* Відступ між часом і бейджем */
+}
+
+.chat-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-username {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none !important;
+  color: black;
+  margin: 0;
+  font-style: normal;
+}
+
+.chat-preview {
+  text-decoration: none;
+  font-size: 15px;
+  color: #747474; /* Світліший зелений */
+  margin: 0;
+  font: initial;
+}
+
+.chat-time {
+  font-size: 12px;
+  color: #747474; /* Світліший зелений */
+  margin-left: auto;
+  font-style: italic; /* Курсив для часу */
+}
+
+.unread-badge {
+  font-size: 12px;
+  color: #0000ee; /* Темно-зелений для галочок */
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.unread-badge.highlight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px; /* Збільшено розмір бейджа */
+  height: 24px;
+  background: white;
+  color: #0000ee; /* Темно-зелений */
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%; /* Круглий бейдж */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легка тінь */
+}
