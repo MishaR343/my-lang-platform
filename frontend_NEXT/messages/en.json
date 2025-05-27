@@ -154,7 +154,11 @@
   "Improved": "Improved:",
   "AI Improved info": "When enabled, AI suggests an improved version of your message before sending. You can choose which version to send."
 
+},
+"PracticeRoom": {
+  "Question": "Question",
+  "Next": "Next",
+  "Prev": "Previous"
+  }
 }
 
-
-}

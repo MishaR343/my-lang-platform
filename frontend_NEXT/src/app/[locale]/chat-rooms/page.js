@@ -8,6 +8,7 @@ import { useAuth } from '@/context/AuthContext';
 import ChatRoomsList from './components/ChatRoomsList';
 import Chat from './components/Chat';
 import NewChat from './components/NewChat';
+import ProtectedRoute from '@/components/ProtectedRoute';
 import styles from './page.module.css'; // твій файл стилів
 import './components/styles/Split.css'; // нові стилі для розділення
 
@@ -21,6 +22,7 @@ export default function ChatRoomsPage() {
   const [creating, setCreating] = useState(false);
 
   return (
+    <ProtectedRoute>
     <main className={styles.container}>
     <Split
       className="split"
@@ -55,5 +57,6 @@ export default function ChatRoomsPage() {
         </div>
       </Split>
     </main>
+    </ProtectedRoute>
   );
 }

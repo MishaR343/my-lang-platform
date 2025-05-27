@@ -1,16 +1,52 @@
 .container {
-    padding: 2rem;
-    background-color: #fffdf5;
-  }
-  
-  .title {
-    font-size: 2rem;
-    color: #222;
-    margin-bottom: 0.8rem;
-  }
-  
-  .description {
-    font-size: 1rem;
-    color: #444;
-  }
-  
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 16px;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.statsBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statItem {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.statItem h3 {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.statItem p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0070f3;
+}
+
+.chartPlaceholder {
+  text-align: center;
+  padding: 2rem;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  color: #888;
+}
